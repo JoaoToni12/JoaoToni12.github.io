@@ -3,11 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>João Gabriel Toni</title>
+<title>João Gabriel Toni · Applied AI engineer</title>
 <meta name="description" content="Applied AI engineer. I build evaluation sets that catch silent failures, guardrails that fail closed and audit trails a third party can read.">
 <meta property="og:title" content="João Gabriel Toni">
 <meta property="og:description" content="LLM systems you can check: evals, guardrails and audit trails.">
 <meta property="og:url" content="https://joaotoni12.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="https://joaotoni12.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,7 +87,9 @@ h2{margin:0;font:500 clamp(2rem,4.2vw,3.25rem)/1.05 var(--display);letter-spacin
 .sobre h3{margin:0 0 6px;font:500 1.0625rem var(--sans)}
 .sobre p{margin:0;color:var(--tinta-2)}
 footer{margin-top:96px;border-top:1px solid var(--linha)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px 44px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-block:28px 44px}
+.contato{display:flex;flex-wrap:wrap;gap:8px 24px;font:500 1.125rem var(--display)}
+.contato a{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
 .x{}@media (max-width:860px){.trabalho .rotulo{text-align:left}.numeros{grid-template-columns:repeat(2,minmax(0,1fr))}.numeros div{padding-left:0!important;padding-right:12px}.principios,.sobre,.caso .duas{grid-template-columns:minmax(0,1fr);gap:28px}.trabalho li{grid-template-columns:minmax(0,1fr)}nav{display:none}.hero{padding-block:40px 48px}section{padding-block:64px 0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -88,7 +97,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 <body>
 <header><div class="wrap">
   <a class="nome" href="./">João Toni</a>
-  <nav class="rotulo" aria-label="Sections"><a href="#work">Work</a><a href="#proof">Proof</a><a href="#contact">Contact</a></nav>
+  <nav class="rotulo" aria-label="Sections"><a href="#work">Work</a><a href="#proof">Proof</a><a href="#about">About</a></nav>
 </div></header>
 
 <main class="wrap">
@@ -160,7 +169,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
     </ul>
   </section>
 
-  <section id="contact" aria-labelledby="h-about">
+  <section id="about" aria-labelledby="h-about">
     <div class="barra" aria-hidden="true"></div>
     <div class="cab"><h2 id="h-about">About</h2><span class="rotulo">Rennes → Paris-Saclay, January 2027</span></div>
     <div class="sobre">
@@ -170,6 +179,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   </section>
 </main>
 
-<footer><div class="wrap rotulo"><span>João Gabriel Toni</span><span>Public repositories are clean-room, built with synthetic data</span></div></footer>
+<footer id="contact"><div class="wrap"><div class="contato"><a href="mailto:joaotoni2@gmail.com">joaotoni2@gmail.com</a><a href="https://www.linkedin.com/in/joao-toni">LinkedIn</a><a href="https://github.com/JoaoToni12">GitHub</a></div><span class="rotulo">Public repositories are clean-room, built with synthetic data</span></div></footer>
 </body>
 </html>
