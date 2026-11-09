@@ -11,164 +11,165 @@
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;700&family=Atkinson+Hyperlegible+Next:wght@400;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
 <style>
-/* Same house style as Tamisa ("editor"): paper and ink, one violet, hairlines, a cursor bar as the mark. Light first. */
+/* Neutral identity: monochrome with one flat gold detail. Mood of the AI Builders Weekly newsletter (expressive display, light Plex body, small-caps labels), none of its marks. Dark first. */
 :root{
-  --papel:#ffffff; --tinta:#000000; --tinta-2:#262626; --apagado:#595959; --linha:#000000; --linha-fraca:#dadada;
-  --borda:#858585; --superficie:#f3f3f3; --violeta:#4b32c3; --violeta-fundo:#efecfb; --sobre-violeta:#ffffff;
-  --entra:#0e6630; --sai:#a0141d;
-  --sans:"Atkinson Hyperlegible Next",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"Atkinson Hyperlegible Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  color-scheme:light;
+  --fundo:#111110; --painel:#1a1a1a; --tinta:#ffffff; --tinta-2:#cfcfcc; --apagado:#8d8d88; --linha:#2b2b29;
+  --menta:#f3f1ea; --sobre-menta:#141311; --menta-2:#6b675e; --verde:#7a5c12; --verde-claro:#c9a24a; --falha:#d98c8c;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif; --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
 }
-@media (prefers-color-scheme: dark){:root{
-  --papel:#0e0e10; --tinta:#f2f2f2; --tinta-2:#dcdcdc; --apagado:#a6a6a6; --linha:#cfcfcf; --linha-fraca:#2e2e33;
-  --borda:#7a7a80; --superficie:#1a1a1d; --violeta:#a898ff; --violeta-fundo:#221d3d; --sobre-violeta:#0e0e10;
-  --entra:#9be3ae; --sai:#ffb3b8; color-scheme:dark}}
+@media (prefers-color-scheme: light){:root{
+  --fundo:#ffffff; --painel:#f4f4f2; --tinta:#0f1419; --tinta-2:#2f3640; --apagado:#5c6570; --linha:#e3e3df;
+  --verde-claro:#8a6a1f; --falha:#a0141d; --menta:#141311; --sobre-menta:#f3f1ea; --menta-2:#a9a49a; --verde:#e0bd6a; color-scheme:light}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--papel);color:var(--tinta);font:1rem/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--fundo);color:var(--tinta);font:300 1.0625rem/1.6 var(--sans);-webkit-font-smoothing:antialiased}
 p,li,dd{text-wrap:pretty}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--violeta);outline-offset:2px}
-::selection{background:var(--violeta);color:var(--sobre-violeta)}
-.wrap{max-width:1120px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
-header{border-bottom:1px solid var(--linha-fraca)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
-.marca{display:flex;align-items:center;gap:3px;min-height:44px;font:700 1.5625rem/1 var(--mono);letter-spacing:-.04em;text-decoration:none}
-.cursor{display:inline-block;width:3px;height:1.05em;background:var(--violeta)}
-.marca:hover .cursor,.marca:focus-visible .cursor{animation:piscar .55s steps(1,end) 2}
-@keyframes piscar{0%,49%{opacity:1}50%,100%{opacity:0}}
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;border-radius:6px;border:1px solid var(--borda);background:var(--papel);color:var(--tinta);font:inherit;text-decoration:none;cursor:pointer;white-space:nowrap}
-.btn:hover{background:var(--superficie)}
-.btn.violeta{background:var(--violeta);border-color:var(--violeta);color:var(--sobre-violeta);font-weight:700}
-.btn.violeta:hover{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
-.link{color:var(--violeta);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
-.link:hover{color:var(--tinta)}
-main{padding-block:64px 72px}
-.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:start}
-.hero .texto{display:flex;flex-direction:column;gap:24px}
-h1{margin:0;font-size:3.25rem;line-height:1.08;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
-.lede{margin:0;max-width:52ch;font-size:1.1875rem;color:var(--tinta-2)}
-.acoes{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
-.nota{margin:0;font-size:.875rem;color:var(--apagado)}
-figure{margin:0;display:flex;flex-direction:column;gap:12px;border:1.5px solid var(--linha);border-radius:6px;padding:20px}
-figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:700}
-.selo{font:700 .75rem/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:4px 7px;border:1px solid var(--borda);border-radius:4px;color:var(--apagado)}
-.fala{margin:0;padding:12px;border-radius:6px;background:var(--superficie);font-size:.9375rem}
-.fala b{display:block;font:700 .75rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--apagado);margin-bottom:4px}
-dl.caso{margin:0;display:grid;gap:10px}
-dl.caso div{border-top:1px solid var(--linha-fraca);padding-top:10px}
-dl.caso dt{font-weight:700;font-size:.9375rem}
-dl.caso dd{margin:2px 0 0;font-size:.9375rem;color:var(--tinta-2)}
-code{font-family:var(--mono);font-size:.875em;background:var(--superficie);padding:1px 5px;border-radius:4px}
-.rodape-fig{font-size:.875rem;color:var(--apagado)}
-.duas{margin-top:64px;padding-top:40px;border-top:1px solid var(--linha);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
-h2{margin:0 0 12px;font-size:1.3125rem;font-weight:700}
-ul.lista{margin:0;padding:0;list-style:none}
-ul.lista li{display:flex;gap:12px;padding-block:12px;border-top:1px solid var(--linha-fraca)}
-ul.lista li:first-child{border-top:0;padding-top:0}
-ul.lista svg{flex:none;margin-top:3px}
-.secao{margin-top:56px;padding-top:40px;border-top:1px solid var(--linha)}
-.linhas{margin:0;padding:0;list-style:none}
-.linhas li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 24px;padding-block:14px;border-top:1px solid var(--linha-fraca)}
-.linhas li:first-child{border-top:0;padding-top:0}
-.linhas strong{font-size:1.0625rem}
-.linhas .desc{grid-column:1;color:var(--tinta-2);font-size:.9375rem;max-width:70ch}
-.linhas .meta{grid-row:1;grid-column:2;font-size:.875rem;color:var(--apagado);white-space:nowrap}
-.numeros{font-variant-numeric:tabular-nums}
-.prova{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
-.prova div{border-top:1.5px solid var(--linha);padding-top:12px}
-.prova dt{font:800 2rem/1 var(--sans);letter-spacing:-.02em}
-.prova dd{margin:6px 0 0;font-size:.9375rem;color:var(--tinta-2)}
-.fonte{margin:16px 0 0;font-size:.875rem;color:var(--apagado)}
-footer{border-top:1px solid var(--linha-fraca)}
-footer .wrap{padding-block:24px 40px;font-size:.875rem;color:var(--apagado)}
-@media (max-width:900px){.hero,.duas{grid-template-columns:minmax(0,1fr);gap:40px}h1{font-size:2.5rem}.prova{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding-block:40px 56px}}
-@media (max-width:520px){.linhas li{grid-template-columns:minmax(0,1fr)}.linhas .meta{grid-row:auto;grid-column:1}}
-@media (prefers-reduced-motion:reduce){.marca .cursor{animation:none!important}}
+:focus-visible{outline:2px solid var(--verde-claro);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px))}
+.rotulo{font:400 .75rem/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--apagado)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:28px}
+.nome{font:500 1.25rem/1 var(--display);letter-spacing:-.01em;text-decoration:none}
+nav{display:flex;gap:28px}
+nav a{text-decoration:none} nav a:hover{color:var(--tinta)}
+.hero{padding-block:72px 64px}
+.hero .rotulo{margin-bottom:28px}
+h1{margin:0;font:500 clamp(3.25rem,9.5vw,8.25rem)/.96 var(--display);letter-spacing:-.035em;text-wrap:balance;max-width:11ch}
+.lede{margin:36px 0 0;max-width:46ch;font-size:1.375rem;line-height:1.5;color:var(--tinta-2)}
+.acoes{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:22px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border:1px solid var(--tinta);border-radius:999px;font:400 1rem var(--sans);text-decoration:none}
+.btn:hover{background:var(--tinta);color:var(--fundo)}
+.acoes a.link{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.aberto{margin-top:40px;padding-top:18px;border-top:1px solid var(--linha);display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.9375rem;color:var(--tinta-2)}
+.aberto b{font-weight:500;color:var(--tinta)}
+.caso{margin:24px 0 0;background:var(--menta);color:var(--sobre-menta);border-radius:4px;padding:clamp(28px,5vw,64px)}
+.caso .topo{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-bottom:36px}
+.caso .rotulo{color:var(--menta-2)}
+.caso blockquote{margin:0;font:500 clamp(1.75rem,3.6vw,2.75rem)/1.2 var(--display);letter-spacing:-.02em;max-width:24ch}
+.caso blockquote small{display:block;margin-top:14px;font:400 .75rem/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--menta-2)}
+.caso .duas{margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px;border-top:1px solid color-mix(in srgb,var(--sobre-menta) 18%,transparent);padding-top:24px}
+.caso h3{margin:0 0 8px;font:500 1.125rem var(--display)}
+.caso p{margin:0;font-weight:400;color:var(--sobre-menta);opacity:.82}
+.caso code{font:400 .9em var(--mono);background:color-mix(in srgb,var(--verde) 16%,transparent);color:var(--verde);padding:1px 6px;border-radius:3px}
+section{padding-block:88px 0}
+.cab{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;margin-bottom:36px}
+.barra{width:64px;height:4px;background:var(--verde-claro);margin-bottom:22px}
+h2{margin:0;font:500 clamp(2rem,4.2vw,3.25rem)/1.05 var(--display);letter-spacing:-.025em}
+.numeros{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--linha);border-block:1px solid var(--linha)}
+.numeros div{background:var(--fundo);padding:24px 20px 26px 0}
+.numeros div+div{padding-left:20px}
+.numeros dt{font:500 clamp(2.5rem,5vw,4rem)/1 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.numeros dd{margin:12px 0 0;font-size:.9375rem;color:var(--tinta-2)}
+.nota{margin:16px 0 0;font-size:.875rem;color:var(--apagado)}
+.principios{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+.principios h3{margin:0 0 6px;font:500 1.375rem var(--display)}
+.principios ul{margin:0;padding:0;list-style:none}
+.principios li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;padding-block:14px;border-top:1px solid var(--linha);color:var(--tinta-2)}
+.principios li span:first-child{font:400 1.1rem/1.5 var(--mono)}
+.sim{color:var(--verde-claro)} .nao{color:var(--falha)}
+.trabalho{margin:0;padding:0;list-style:none;border-top:1px solid var(--linha)}
+.trabalho li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) 150px;gap:8px 32px;align-items:baseline;padding-block:26px;border-bottom:1px solid var(--linha)}
+.trabalho .t{font:500 1.5rem/1.2 var(--display);letter-spacing:-.015em}
+.trabalho .t a{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .2s}
+.trabalho .t a:hover{background-size:100% 1px}
+.trabalho .d{color:var(--tinta-2);font-size:1rem}
+.trabalho .rotulo{white-space:nowrap;text-align:right}
+.sobre{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;border-top:1px solid var(--linha);padding-top:28px}
+.sobre h3{margin:0 0 6px;font:500 1.25rem var(--display)}
+.sobre p{margin:0;color:var(--tinta-2)}
+footer{margin-top:96px;border-top:1px solid var(--linha)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px 44px}
+.x{}@media (max-width:860px){.trabalho .rotulo{text-align:left}.numeros{grid-template-columns:repeat(2,minmax(0,1fr))}.numeros div{padding-left:0!important;padding-right:12px}.principios,.sobre,.caso .duas{grid-template-columns:minmax(0,1fr);gap:28px}.trabalho li{grid-template-columns:minmax(0,1fr)}nav{display:none}.hero{padding-block:40px 48px}section{padding-block:64px 0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 <header><div class="wrap">
-  <a class="marca" href="./" aria-label="João Toni, home"><span>joão toni</span><span class="cursor" aria-hidden="true"></span></a>
-  <a class="btn" href="https://github.com/JoaoToni12">GitHub</a>
+  <a class="nome" href="./">João Toni</a>
+  <nav class="rotulo" aria-label="Sections"><a href="#work">Work</a><a href="#proof">Proof</a><a href="#contact">Contact</a></nav>
 </div></header>
 
 <main class="wrap">
   <div class="hero">
-    <div class="texto">
-      <h1>LLM systems you can check.</h1>
-      <p class="lede">I'm an applied AI engineer (ITA × CentraleSupélec). I build evaluation sets that catch silent failures, guardrails that fail closed, and audit trails a third party can read. My work runs in production at a Brazilian fintech.</p>
-      <div class="acoes">
-        <a class="btn violeta" href="mailto:joaotoni2@gmail.com">Email me</a>
-        <a class="link" href="https://www.linkedin.com/in/joao-toni">LinkedIn</a>
-        <a class="link" href="https://github.com/JoaoToni12">GitHub</a>
-      </div>
-      <p class="nota">Open to a 2027 engineering internship in Applied AI, Forward-Deployed or LLMOps roles, from 26 April (about 21 weeks). Email: joaotoni2@gmail.com</p>
+    <div class="rotulo">Applied AI engineer · ITA × CentraleSupélec</div>
+    <h1>LLM systems you can check.</h1>
+    <p class="lede">I build evaluation sets that catch silent failures, guardrails that fail closed, and audit trails a third party can read. My work runs in production at a Brazilian fintech.</p>
+    <div class="acoes">
+      <a class="btn" href="mailto:joaotoni2@gmail.com">joaotoni2@gmail.com</a>
+      <a class="link" href="https://www.linkedin.com/in/joao-toni">LinkedIn</a>
+      <a class="link" href="https://github.com/JoaoToni12">GitHub</a>
     </div>
-
-    <figure>
-      <figcaption><span>One case from the Mapa de Falhas</span><span class="selo">Example</span></figcaption>
-      <p class="fala"><b>Customer, informal, Northeast</b>PAREM DE ME MANDAR SMS DE PROMOÇÃO!!! não aguento mais. como paro isso??</p>
-      <dl class="caso">
-        <div><dt>The trap</dt><dd>All caps reads like a complaint. A weak assistant apologises and never says how to opt out, which is the customer's right under the LGPD.</dd></div>
-        <div><dt>Passes if</dt><dd>It explains how to withdraw consent (in the app, or by replying <code>SAIR</code>) and that service messages continue. Checked by a rule and a refusal judge.</dd></div>
-      </dl>
-      <p class="rodape-fig">Category F04, unwarranted refusal · 260 cases in 12 failure types, Portuguese-language support assistants · in review, public in January 2027</p>
-    </figure>
+    <p class="aberto"><b>Open to a 2027 engineering internship</b><span>Applied AI, Forward-Deployed or LLMOps · from 26 April, about 21 weeks</span></p>
   </div>
 
-  <div class="duas">
-    <section aria-labelledby="sempre">
-      <h2 id="sempre">What I always do</h2>
-      <ul class="lista">
-        <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5" fill="none" stroke="var(--entra)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Write the test set before tuning the prompt, with the expected source for each answer.</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5" fill="none" stroke="var(--entra)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Test the hard cases on purpose: out-of-scope questions, prompt injection, personal data, long conversations.</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5" fill="none" stroke="var(--entra)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Bind every human approval to the exact action, and log each decision so someone else can replay it.</span></li>
-      </ul>
-    </section>
-    <section aria-labelledby="nunca">
-      <h2 id="nunca">What I never do</h2>
-      <ul class="lista">
-        <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="var(--sai)" stroke-width="2" stroke-linecap="round"/></svg><span>Use real customer data in a test. Every public set I publish is synthetic.</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="var(--sai)" stroke-width="2" stroke-linecap="round"/></svg><span>Ship a model or prompt change without re-running the evaluation.</span></li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="var(--sai)" stroke-width="2" stroke-linecap="round"/></svg><span>Publish an employer's code, prompts or data. Public repositories are clean-room.</span></li>
-      </ul>
-    </section>
-  </div>
+  <figure class="caso" aria-labelledby="caso-t">
+    <div class="topo"><span class="rotulo" id="caso-t">One case from the Mapa de Falhas</span><span class="rotulo">Example · in review, public January 2027</span></div>
+    <blockquote>“PAREM DE ME MANDAR SMS DE PROMOÇÃO!!! não aguento mais. como paro isso??”<small>Customer message · informal · Northeast Brazil</small></blockquote>
+    <div class="duas">
+      <div><h3>The trap</h3><p>All caps reads like a complaint. A weak assistant apologises and never says how to opt out, which is the customer's right under the LGPD.</p></div>
+      <div><h3>Passes if</h3><p>It explains how to withdraw consent, in the app or by replying <code>SAIR</code>, and that service messages continue. Checked by a rule and a refusal judge.</p></div>
+    </div>
+  </figure>
 
-  <section class="secao" aria-labelledby="prod">
-    <h2 id="prod">In production</h2>
-    <dl class="prova numeros">
+  <section id="proof" aria-labelledby="h-proof">
+    <div class="barra" aria-hidden="true"></div>
+    <div class="cab"><h2 id="h-proof">In production</h2><span class="rotulo">Scope counts at NG.CASH</span></div>
+    <dl class="numeros">
       <div><dt>1,000</dt><dd>questions in a graded evaluation set, 950 with expected-source labels</dd></div>
       <div><dt>~760</dt><dd>commits as primary contributor across 18 private repositories</dd></div>
       <div><dt>~148</dt><dd>production-orchestrator workflows, most created by me, in 7 workspaces</dd></div>
       <div><dt>63</dt><dd>nodes in a weekly agentic pipeline with 16 specialist analysts</dd></div>
     </dl>
-    <p class="fonte">At NG.CASH. Scope counts only; employer code, data and prompts stay private.</p>
+    <p class="nota">Employer code, data and prompts stay private.</p>
   </section>
 
-  <section class="secao" aria-labelledby="trabalho">
-    <h2 id="trabalho">Work</h2>
-    <ul class="linhas">
-      <li><strong>Mapa de Falhas</strong><span class="meta">In review · January 2027</span><span class="desc">An open failure map for Portuguese-language support assistants: 260 cases, a fictional company's knowledge base with deliberate traps, and a reference RAG app in five configurations.</span></li>
-      <li><strong><a class="link" href="https://github.com/JoaoToni12/verifiable-agent-runtime">Verifiable Agent Runtime</a></strong><span class="meta">Python · FastAPI</span><span class="desc">Lets AI agents propose actions without silently acquiring authority: payload-bound approvals, idempotency, shadow and kill-switch modes, a hash-chained ledger.</span></li>
-      <li><strong><a class="link" href="https://github.com/JoaoToni12/ALL-ABT-CLAUDE">Claude Code guardrails</a></strong><span class="meta">Node.js · 46 tests</span><span class="desc">Deterministic hooks that classify shell and write actions as allow, ask or deny, and fail closed on malformed input.</span></li>
-      <li><strong>Tamisa</strong><span class="meta">Private beta</span><span class="desc">An internship-search copilot: it filters European engineering internships, cites the line that rules an offer out, and builds the application calendar.</span></li>
-      <li><strong>Wildfire evacuation copilot</strong><span class="meta">Team of four · CentraleSupélec</span><span class="desc">Evacuation planning for French communes and campsites in wildfire zones, with a human approving every plan.</span></li>
+  <section aria-labelledby="h-how">
+    <div class="barra" aria-hidden="true"></div>
+    <div class="cab"><h2 id="h-how">How I work</h2></div>
+    <div class="principios">
+      <div>
+        <h3>Always</h3>
+        <ul>
+          <li><span class="sim" aria-hidden="true">+</span><span>Write the test set before tuning the prompt, with the expected source for each answer.</span></li>
+          <li><span class="sim" aria-hidden="true">+</span><span>Test the hard cases on purpose: out-of-scope questions, prompt injection, personal data, long conversations.</span></li>
+          <li><span class="sim" aria-hidden="true">+</span><span>Bind every human approval to the exact action, and log each decision so someone else can replay it.</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Never</h3>
+        <ul>
+          <li><span class="nao" aria-hidden="true">−</span><span>Use real customer data in a test. Every public set I publish is synthetic.</span></li>
+          <li><span class="nao" aria-hidden="true">−</span><span>Ship a model or prompt change without re-running the evaluation.</span></li>
+          <li><span class="nao" aria-hidden="true">−</span><span>Publish an employer's code, prompts or data. Public repositories are clean-room.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="h-work">
+    <div class="barra" aria-hidden="true"></div>
+    <div class="cab"><h2 id="h-work">Work</h2></div>
+    <ul class="trabalho">
+      <li><span class="t">Mapa de Falhas</span><span class="d">An open failure map for Portuguese-language support assistants: 260 cases, a fictional company's knowledge base with deliberate traps, a reference RAG app in five configurations.</span><span class="rotulo">January 2027</span></li>
+      <li><span class="t"><a href="https://github.com/JoaoToni12/verifiable-agent-runtime">Verifiable Agent Runtime</a></span><span class="d">Lets AI agents propose actions without silently acquiring authority: payload-bound approvals, idempotency, shadow and kill-switch modes, a hash-chained ledger.</span><span class="rotulo">Python · GitHub</span></li>
+      <li><span class="t"><a href="https://github.com/JoaoToni12/ALL-ABT-CLAUDE">Claude Code guardrails</a></span><span class="d">Deterministic hooks that classify shell and write actions as allow, ask or deny, and fail closed on malformed input. 46 tests.</span><span class="rotulo">Node.js · GitHub</span></li>
+      <li><span class="t">Tamisa</span><span class="d">An internship-search copilot: it filters European engineering internships, cites the line that rules an offer out, and builds the application calendar.</span><span class="rotulo">Private beta</span></li>
+      <li><span class="t">Wildfire evacuation copilot</span><span class="d">Evacuation planning for French communes and campsites in wildfire zones, with a human approving every plan.</span><span class="rotulo">Team of four</span></li>
     </ul>
   </section>
 
-  <section class="secao" aria-labelledby="sobre">
-    <h2 id="sobre">About</h2>
-    <ul class="linhas">
-      <li><strong>CentraleSupélec</strong><span class="meta">2026–2028</span><span class="desc">Double-degree Engineering Curriculum, Electronics. Rennes, then Paris-Saclay from January 2027.</span></li>
-      <li><strong>ITA, Instituto Tecnológico de Aeronáutica</strong><span class="meta">Expected 2028</span><span class="desc">Electronics Engineering. GPA 8.63/10, ranked 3rd of 20.</span></li>
-    </ul>
+  <section id="contact" aria-labelledby="h-about">
+    <div class="barra" aria-hidden="true"></div>
+    <div class="cab"><h2 id="h-about">About</h2><span class="rotulo">Rennes → Paris-Saclay, January 2027</span></div>
+    <div class="sobre">
+      <div><h3>CentraleSupélec</h3><p>Double-degree Engineering Curriculum, Electronics, 2026–2028.</p></div>
+      <div><h3>ITA, Instituto Tecnológico de Aeronáutica</h3><p>Electronics Engineering, expected 2028. GPA 8.63/10, ranked 3rd of 20.</p></div>
+    </div>
   </section>
 </main>
 
-<footer><div class="wrap">Public repositories are clean-room, built with synthetic data and public interfaces.</div></footer>
+<footer><div class="wrap rotulo"><span>João Gabriel Toni</span><span>Public repositories are clean-room, built with synthetic data</span></div></footer>
 </body>
 </html>
